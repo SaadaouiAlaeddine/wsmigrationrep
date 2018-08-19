@@ -1,0 +1,49 @@
+<xs:schema xmlns:tns="http://logic/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://logic/" version="1.0">
+
+  <xs:element name="getNextEndpoint" type="tns:getNextEndpoint"/>
+
+  <xs:element name="getNextEndpointResponse" type="tns:getNextEndpointResponse"/>
+
+  <xs:element name="start" type="tns:start"/>
+
+  <xs:element name="startResponse" type="tns:startResponse"/>
+
+  <xs:element name="stop" type="tns:stop"/>
+
+  <xs:element name="stopResponse" type="tns:stopResponse"/>
+
+  <xs:complexType name="start">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="webContext" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="startResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNextEndpoint">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getNextEndpointResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="stop">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="webContext" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="stopResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

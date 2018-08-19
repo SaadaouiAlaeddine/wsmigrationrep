@@ -1,0 +1,52 @@
+<xs:schema xmlns="http://logic/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://logic/">
+  <xs:complexType name="ws">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="directory" type="xs:string"/>
+      <xs:element minOccurs="0" name="warName" type="xs:string"/>
+      <xs:element minOccurs="0" name="webPath" type="xs:string"/>
+      <xs:element minOccurs="0" name="wsdlName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="duplicateWS" type="duplicateWS"/>
+  <xs:complexType name="duplicateWS">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="ws" type="ws"/>
+      <xs:element form="qualified" minOccurs="0" name="destinationManagerURL" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="destinationWSDLAddress" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="duplicateWSResponse" type="duplicateWSResponse"/>
+  <xs:complexType name="duplicateWSResponse">
+    <xs:sequence>
+      <xs:element form="qualified" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="moveWS" type="moveWS"/>
+  <xs:complexType name="moveWS">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="ws" type="ws"/>
+      <xs:element form="qualified" minOccurs="0" name="sourceManagerURL" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="destinationManagerURL" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="destinationWSDLAddress" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="moveWSResponse" type="moveWSResponse"/>
+  <xs:complexType name="moveWSResponse">
+    <xs:sequence>
+      <xs:element form="qualified" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="undeploy" type="undeploy"/>
+  <xs:complexType name="undeploy">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="ws" type="ws"/>
+      <xs:element form="qualified" minOccurs="0" name="tomcatManagerURL" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="undeployResponse" type="undeployResponse"/>
+  <xs:complexType name="undeployResponse">
+    <xs:sequence>
+      <xs:element form="qualified" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

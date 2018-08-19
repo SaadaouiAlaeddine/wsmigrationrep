@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="MigratorWS" targetNamespace="http://logic/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://logic/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://logic/" schemaLocation="migratorws_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="duplicateWS">
+    <wsdl:part name="parameters" element="tns:duplicateWS">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="duplicateWSResponse">
+    <wsdl:part name="parameters" element="tns:duplicateWSResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="moveWS">
+    <wsdl:part name="parameters" element="tns:moveWS">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="undeploy">
+    <wsdl:part name="parameters" element="tns:undeploy">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="moveWSResponse">
+    <wsdl:part name="parameters" element="tns:moveWSResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="undeployResponse">
+    <wsdl:part name="parameters" element="tns:undeployResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MigratorWSPortType">
+    <wsdl:operation name="duplicateWS">
+      <wsdl:input name="duplicateWS" message="tns:duplicateWS">
+    </wsdl:input>
+      <wsdl:output name="duplicateWSResponse" message="tns:duplicateWSResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="moveWS">
+      <wsdl:input name="moveWS" message="tns:moveWS">
+    </wsdl:input>
+      <wsdl:output name="moveWSResponse" message="tns:moveWSResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="undeploy">
+      <wsdl:input name="undeploy" message="tns:undeploy">
+    </wsdl:input>
+      <wsdl:output name="undeployResponse" message="tns:undeployResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MigratorWSSoapBinding" type="tns:MigratorWSPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="duplicateWS">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="duplicateWS">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="duplicateWSResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="moveWS">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="moveWS">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="moveWSResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="undeploy">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="undeploy">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="undeployResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MigratorWS">
+    <wsdl:port name="MigratorWSPort" binding="tns:MigratorWSSoapBinding">
+      <soap:address location="http://localhost:8080/MigratorWS/services/MigratorWSPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

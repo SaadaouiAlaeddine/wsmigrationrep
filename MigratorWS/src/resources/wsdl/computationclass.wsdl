@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ComputationClass" targetNamespace="http://logic/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://logic/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://logic/" schemaLocation="computationclass_schema2.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="tanFunctionResponse">
+    <wsdl:part name="parameters" element="tns:tanFunctionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="febonacciResponse">
+    <wsdl:part name="parameters" element="tns:febonacciResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="multiplyResponse">
+    <wsdl:part name="parameters" element="tns:multiplyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="febonacci">
+    <wsdl:part name="parameters" element="tns:febonacci">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tanFunction">
+    <wsdl:part name="parameters" element="tns:tanFunction">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="multiply">
+    <wsdl:part name="parameters" element="tns:multiply">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ComputationClassPortType">
+    <wsdl:operation name="febonacci">
+      <wsdl:input name="febonacci" message="tns:febonacci">
+    </wsdl:input>
+      <wsdl:output name="febonacciResponse" message="tns:febonacciResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tanFunction">
+      <wsdl:input name="tanFunction" message="tns:tanFunction">
+    </wsdl:input>
+      <wsdl:output name="tanFunctionResponse" message="tns:tanFunctionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <wsdl:input name="multiply" message="tns:multiply">
+    </wsdl:input>
+      <wsdl:output name="multiplyResponse" message="tns:multiplyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ComputationClassSoapBinding" type="tns:ComputationClassPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="febonacci">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="febonacci">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="febonacciResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tanFunction">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="tanFunction">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tanFunctionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="multiply">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="multiplyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ComputationClass">
+    <wsdl:port name="ComputationClassPort" binding="tns:ComputationClassSoapBinding">
+      <soap:address location="http://localhost:8080/ComputationWS/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ControllerClassService" targetNamespace="http://logic/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://logic/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://logic/" schemaLocation="controllerclass_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getNextEndpointResponse">
+    <wsdl:part name="parameters" element="tns:getNextEndpointResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stop">
+    <wsdl:part name="parameters" element="tns:stop">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopResponse">
+    <wsdl:part name="parameters" element="tns:stopResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="start">
+    <wsdl:part name="parameters" element="tns:start">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="startResponse">
+    <wsdl:part name="parameters" element="tns:startResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNextEndpoint">
+    <wsdl:part name="parameters" element="tns:getNextEndpoint">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ControllerWSSEI">
+    <wsdl:operation name="start">
+      <wsdl:input name="start" message="tns:start">
+    </wsdl:input>
+      <wsdl:output name="startResponse" message="tns:startResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextEndpoint">
+      <wsdl:input name="getNextEndpoint" message="tns:getNextEndpoint">
+    </wsdl:input>
+      <wsdl:output name="getNextEndpointResponse" message="tns:getNextEndpointResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <wsdl:input name="stop" message="tns:stop">
+    </wsdl:input>
+      <wsdl:output name="stopResponse" message="tns:stopResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ControllerClassServiceSoapBinding" type="tns:ControllerWSSEI">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="start">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="start">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="startResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextEndpoint">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNextEndpoint">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNextEndpointResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="stop">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="stopResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ControllerClassService">
+    <wsdl:port name="ControllerClassPort" binding="tns:ControllerClassServiceSoapBinding">
+      <soap:address location="http://localhost:8080/ControllerWS/services/ControllerClassPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
